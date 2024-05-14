@@ -1,0 +1,83 @@
+
+/* Estilos para el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos para el encabezado */
+h1 {
+    color: #333;
+}
+
+/* Estilos para el formulario de búsqueda */
+#searchInput {
+    width: 300px;
+}
+
+/* Estilos para el botón de búsqueda */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Estilos para el botón de Pokémon aleatorio */
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Estilos para el modal */
+.modal-content {
+    border-radius: 0;
+}
+
+.modal-header {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-footer {
+    justify-content: center;
+}
+
+/* Estilos para la tabla */
+#pokemonTable th,
+#pokemonTable td {
+    vertical-align: middle;
+}
+
+/* Estilos para el botón "Show Details" */
+.btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+
+.btn-info:hover {
+    background-color: #138496;
+    border-color: #117a8b;
+}
+
+/* Estilos para el botón "Add to Table" */
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}

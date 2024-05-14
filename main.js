@@ -12,13 +12,18 @@ function searchPokemon() {
             console.log("datos", data);
         })
         .catch(error => console.error('Error:', error));
+    clean();
 }
 
 // Funcion de prueba 
 function search() {
-    // LImite a 150 
+    // Limite a 150 
     var randomId = Math.floor(Math.random() * 150) + 1;
     searchPokemonById(randomId);
+}
+
+function clean (){
+    document.getElementById("searchInput").value = "";
 }
 
 // Buscar por ID
@@ -37,6 +42,7 @@ function searchPokemonById(id) {
             console.log(data)
         })
         .catch(error => console.error('Error:', error));
+
 }
 function showDetails() {
     // Se obtiene el nombre del pokemon 
@@ -52,10 +58,10 @@ function showDetails() {
             var weight = data.weight;
             
             // Elemento HTML
-            var details = `Habilidades: ${abilities}<br>`;
-            details += `Tipo(s): ${types}<br>`;
-            details += `Altura: ${(height / 0.3048).toFixed(2) } m <br>`;
-            details += `Peso: ${(weight / 0.45359237).toFixed(2)} kg <br>`;
+            var details = `<strong>Habilidades:</strong> ${abilities}<br>`;
+            details += `<strong>Tipo(s):</strong> ${types}<br>`;
+            details += `<strong>Altura: </strong>${(height / 0.3048).toFixed(2) } m <br>`;
+            details += `<strong>Peso:</strong> ${(weight / 0.45359237).toFixed(2)} kg <br>`;
             
             //Se agrega modal
             document.getElementById("pokemonDetails").innerHTML = details;
@@ -66,7 +72,31 @@ function showDetails() {
         .catch(error => console.error('Error:', error));
 }
 
-// Prueba para agregar a la tabla un pokemon 
+var pokemonTableData = [];
+
+// Function para agregar el Pokémon seleccionado a la tabla
 function addToTable() {
-    alert("Adding Pokémon to table...");
+    var pokemonName = document.getElementById("pokemonName").textContent;
+    var pokemonID = document.getElementById("pokemonInfo").textContent.replace("ID: ", "");
+
+    // Verificar si el Pokémon ya está en la tabla
+    var pokemonExists = pokemonTableData.some(pokemon => pokemon.name === pokemonName);
+
+    if (!pokemonExists && pokemonTableData.length < 6) {
+        pokemonTableData.push({ name: pokemonName, id: pokemonID });
+
+        // Agregar una fila a la tabla
+        var tableBody = document.querySelector("#pokemonTable tbody");
+        var newRow = tableBody.insertRow();
+
+        var nameCell = newRow.insertCell(0);
+        nameCell.textContent = pokemonName;
+
+        var idCell = newRow.insertCell(1);
+        idCell.textContent = pokemonID;
+    } else if (pokemonTableData.length >= 6) {
+        alert("No se pueden agregar mas de 6 Pokémon.");
+    } else {
+        alert("El pokemon ya esta en la tabla.");
+    }
 }
